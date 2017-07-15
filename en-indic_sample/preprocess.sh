@@ -32,10 +32,10 @@ nematus=/home/development/anoop/installs/nematus
 
 # tokenize
 for prefix in train test tun
- do
+do
    cp data/$prefix.$SRC data/$prefix.tok.$SRC
-   cp data/$prefix.$TGT data/$prefix.tok.$TGT
- done
+   cp data/$prefix.$TRG data/$prefix.tok.$TRG
+done
 
 # clean empty and long sentences, and sentences with high source-target ratio (training corpus only)
 $mosesdecoder/scripts/training/clean-corpus-n.perl data/train.tok $SRC $TRG data/train.tok.clean 1 80
