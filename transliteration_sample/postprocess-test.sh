@@ -1,3 +1,3 @@
 #/bin/sh
 
-sed 's/\@\@ //g'
+python nematus_to_mosesformat.py

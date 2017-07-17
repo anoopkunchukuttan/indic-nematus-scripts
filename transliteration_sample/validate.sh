@@ -27,8 +27,26 @@ THEANO_FLAGS=mode=FAST_RUN,floatX=float32,device=$device,on_unused_input=warn py
      -i $dev \
      -o output/tun.output.$TRG \
      --n-best \
-     -k 5 -n -p 1
+     -k 5 -n -p 1 \
+     --n-best
 
+out_moses_fname=output/tun.output.mosesformat.$TRG
+./postprocess-dev.sh < output/tun.output.$TRG > $out_moses_fname
+
+# generate NEWS 2015 evaluation format output file 
+python $XLIT_HOME/src/cfilt/transliteration/news2015_utilities.py gen_news_output \
+        "data/tun.id" \
+        "data/tun.xml" \
+        "$out_moses_fname" \
+        "$out_moses_fname.xml" \
+        "system" "conll2016" "$SRC" "$TRG"  
+
+# run evaluation 
+python $XLIT_HOME/scripts/news_evaluation_script/news_evaluation.py \
+        -t "data/tun.xml" \
+        -i "$out_moses_fname.xml" \
+        -o "$out_moses_fname.detaileval.csv" \
+         > "$out_moses_fname.eval"
 ### get BLEU
 #BEST=`cat ${prefix}_best_bleu || echo 0`
 #$mosesdecoder/scripts/generic/multi-bleu.perl $ref < $dev.output.postprocessed.dev >> ${prefix}_bleu_scores

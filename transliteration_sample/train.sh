@@ -1,5 +1,5 @@
 # theano device, in case you do not want to compute on gpu, change it to cpu
-device=gpu2
+device=gpu1
 
 export PYTHONPATH=$PYTHONPATH:/home/development/anoop/installs/nematus
 
