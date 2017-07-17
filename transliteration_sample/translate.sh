@@ -1,7 +1,7 @@
 #!/bin/sh
 
 # theano device, in case you do not want to compute on gpu, change it to cpu
-device=gpu1
+device=gpu
 
 SRC=en
 TRG=hi
@@ -17,7 +17,7 @@ THEANO_FLAGS=mode=FAST_RUN,floatX=float32,device=$device,on_unused_input=warn py
      -m model/model.npz \
      -i data/test.$SRC \
      -o output/test.output.$TRG \
-     -k 5 -n -p 4 --device-list gpu2 gpu3 \
+     -k 5 -n -p 1 \
      --n-best
 
 out_moses_fname=output/test.output.mosesformat.$TRG

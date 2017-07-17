@@ -9,8 +9,9 @@ TRG=hi
 # path to nematus ( https://www.github.com/rsennrich/nematus )
 nematus=/home/development/anoop/installs/nematus
 
-# path to moses decoder: https://github.com/moses-smt/mosesdecoder
-mosesdecoder=/usr/local/bin/smt/mosesdecoder_29July16/
+## path to transliterator 
+export XLIT_HOME=/home/development/anoop/experiments/multilingual_unsup_xlit/src/conll16_unsup_xlit
+export PYTHONPATH=$PYTHONPATH:$XLIT_HOME/src
 
 # theano device, in case you do not want to compute on gpu, change it to cpu
 device=gpu
