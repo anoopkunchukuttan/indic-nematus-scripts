@@ -3,7 +3,7 @@ import os
 import sys
 import logging
 
-VOCAB_SIZE = 90000
+VOCAB_SIZE = 16000
 SRC = "en"
 TGT = "hi"
 DATA_DIR = "data/"
@@ -31,7 +31,7 @@ if __name__ == '__main__':
                     dictionaries=[DATA_DIR + '/train.bpe.' + SRC + '.json',DATA_DIR + '/train.bpe.' + TGT + '.json'],
                     validFreq=10000,
                     dispFreq=1000,
-                    saveFreq=30000,
+                    saveFreq=10000,
                     sampleFreq=10000,
                     use_dropout=False,
                     dropout_embedding=0.2, # dropout for input embeddings (0: no dropout)
