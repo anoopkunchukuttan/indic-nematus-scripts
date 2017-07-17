@@ -63,12 +63,14 @@ cat data/train.tc.$SRC | $subword_nmt/learn_bpe.py -s $bpe_operations > model/$S
 cat data/train.tc.$TRG | $subword_nmt/learn_bpe.py -s $bpe_operations > model/$TRG.bpe
 
 # apply BPE
-
 for prefix in train tun test
- do
-  $subword_nmt/apply_bpe.py -c model/$SRC.bpe < data/$prefix.tc.$SRC > data/$prefix.bpe.$SRC
-  $subword_nmt/apply_bpe.py -c model/$TRG.bpe < data/$prefix.tc.$TRG > data/$prefix.bpe.$TRG
- done
+do
+    for lang in $SRC $TRG
+    do 
+        echo $prefix-$lang
+    done 
+done | \
+parallel --gnu --colsep '-' "$subword_nmt/apply_bpe.py -c model/{2}.bpe < data/{1}.tc.{2} > data/{1}.bpe.{2}"
 
-# build network dictionary
-$nematus/data/build_dictionary.py data/train.bpe.$SRC data/train.bpe.$TRG
+## build network dictionary
+#$nematus/data/build_dictionary.py data/train.bpe.$SRC data/train.bpe.$TRG

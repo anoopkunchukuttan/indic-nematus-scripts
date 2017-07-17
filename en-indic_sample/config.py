@@ -22,8 +22,8 @@ if __name__ == '__main__':
                     decay_c=0.,
                     clip_c=1.,
                     lrate=0.0001,
-                    optimizer='adadelta',
-                    maxlen=50,
+                    optimizer='adam',
+                    maxlen=100,
                     batch_size=80,
                     valid_batch_size=80,
                     datasets=[DATA_DIR + '/train.bpe.' + SRC, DATA_DIR + '/train.bpe.' + TGT],
@@ -33,7 +33,7 @@ if __name__ == '__main__':
                     dispFreq=1000,
                     saveFreq=10000,
                     sampleFreq=10000,
-                    use_dropout=False,
+                    use_dropout=True,
                     dropout_embedding=0.2, # dropout for input embeddings (0: no dropout)
                     dropout_hidden=0.2, # dropout for hidden layers (0: no dropout)
                     dropout_source=0.1, # dropout source words (0: no dropout)
