@@ -73,4 +73,4 @@ done | \
 parallel --gnu --colsep '-' "$subword_nmt/apply_bpe.py -c model/{2}.bpe < data/{1}.tc.{2} > data/{1}.bpe.{2}"
 
 ## build network dictionary
-#$nematus/data/build_dictionary.py data/train.bpe.$SRC data/train.bpe.$TRG
+$nematus/data/build_dictionary.py data/train.bpe.$SRC data/train.bpe.$TRG
