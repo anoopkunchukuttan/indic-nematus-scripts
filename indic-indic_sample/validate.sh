@@ -1,10 +1,10 @@
 #!/bin/sh
 
 # suffix of source language files
-SRC=hi
+SRC=bn
 
 # suffix of target language files
-TRG=en
+TRG=hi
 
 # path to nematus ( https://www.github.com/rsennrich/nematus )
 nematus=/home/development/anoop/installs/nematus
@@ -19,7 +19,7 @@ device=gpu
 prefix=model/model.npz
 
 dev=data/tun.bpe.$SRC
-ref=data/tun.tc.$TRG
+ref=data/tun.$TRG
 out=output/tun.bpe.$TRG
 
 # decode

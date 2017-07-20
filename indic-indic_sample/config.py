@@ -3,9 +3,9 @@ import os
 import sys
 import logging
 
-VOCAB_SIZE = 16000
-SRC = "hi"
-TGT = "en"
+VOCAB_SIZE = 3500
+SRC = "bn"
+TGT = "hi"
 DATA_DIR = "data/"
 
 from nematus.nmt import train
@@ -33,7 +33,7 @@ if __name__ == '__main__':
                     dispFreq=1000,
                     saveFreq=10000,
                     sampleFreq=10000,
-                    use_dropout=True,
+                    use_dropout=False,
                     dropout_embedding=0.2, # dropout for input embeddings (0: no dropout)
                     dropout_hidden=0.2, # dropout for hidden layers (0: no dropout)
                     dropout_source=0.1, # dropout source words (0: no dropout)
