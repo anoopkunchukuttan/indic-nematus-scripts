@@ -3,8 +3,8 @@
 # theano device, in case you do not want to compute on gpu, change it to cpu
 device=gpu
 
-SRC=en
-TRG=hi
+SRC=hi
+TRG=en
 
 # path to nematus ( https://www.github.com/rsennrich/nematus )
 nematus=/home/development/anoop/installs/nematus
