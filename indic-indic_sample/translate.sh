@@ -1,16 +1,6 @@
 #!/bin/sh
 
-# theano device, in case you do not want to compute on gpu, change it to cpu
-device=gpu
-
-SRC=bn
-TRG=hi
-
-# path to nematus ( https://www.github.com/rsennrich/nematus )
-nematus=/home/development/anoop/installs/nematus
-
-# path to moses decoder: https://github.com/moses-smt/mosesdecoder
-mosesdecoder=/usr/local/bin/smt/mosesdecoder_29July16/
+source ./common.sh
 
 THEANO_FLAGS=mode=FAST_RUN,floatX=float32,device=$device,on_unused_input=warn python $nematus/nematus/translate.py \
      -m model/model.npz \

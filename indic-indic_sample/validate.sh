@@ -1,19 +1,6 @@
 #!/bin/sh
 
-# suffix of source language files
-SRC=bn
-
-# suffix of target language files
-TRG=hi
-
-# path to nematus ( https://www.github.com/rsennrich/nematus )
-nematus=/home/development/anoop/installs/nematus
-
-# path to moses decoder: https://github.com/moses-smt/mosesdecoder
-mosesdecoder=/usr/local/bin/smt/mosesdecoder_29July16/
-
-# theano device, in case you do not want to compute on gpu, change it to cpu
-device=gpu
+source ./common.sh
 
 #model prefix
 prefix=model/model.npz

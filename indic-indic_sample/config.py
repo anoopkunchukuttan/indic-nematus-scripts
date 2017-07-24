@@ -3,9 +3,9 @@ import os
 import sys
 import logging
 
-VOCAB_SIZE = 3500
-SRC = "bn"
-TGT = "hi"
+VOCAB_SIZE = int(os.getenv('VOCAB_SIZE')
+SRC = os.getenv('SRC')
+TRG = os.getenv('TRG')
 DATA_DIR = "data/"
 
 from nematus.nmt import train
@@ -25,19 +25,20 @@ if __name__ == '__main__':
                     optimizer='adam',
                     maxlen=50,
                     batch_size=50,
-                    valid_batch_size=80,
-                    datasets=[DATA_DIR + '/train.bpe.' + SRC, DATA_DIR + '/train.bpe.' + TGT],
-                    valid_datasets=[DATA_DIR + '/tun.bpe.' + SRC, DATA_DIR + '/tun.bpe.' + TGT],
-                    dictionaries=[DATA_DIR + '/train.bpe.' + SRC + '.json',DATA_DIR + '/train.bpe.' + TGT + '.json'],
-                    validFreq=10000,
+                    valid_batch_size=50,
+                    datasets=[DATA_DIR + '/train.bpe.' + SRC, DATA_DIR + '/train.bpe.' + TRG],
+                    valid_datasets=[DATA_DIR + '/tun.bpe.' + SRC, DATA_DIR + '/tun.bpe.' + TRG],
+                    dictionaries=[DATA_DIR + '/train.bpe.' + SRC + '.json',DATA_DIR + '/train.bpe.' + TRG + '.json'],
+                    validFreq=5000,
                     dispFreq=1000,
-                    saveFreq=10000,
+                    saveFreq=5000,
                     sampleFreq=10000,
                     use_dropout=False,
                     dropout_embedding=0.2, # dropout for input embeddings (0: no dropout)
                     dropout_hidden=0.2, # dropout for hidden layers (0: no dropout)
                     dropout_source=0.1, # dropout source words (0: no dropout)
                     dropout_target=0.1, # dropout target words (0: no dropout)
+                    patience=5,
                     overwrite=False,
                     external_validation_script='./validate.sh')
     print validerr

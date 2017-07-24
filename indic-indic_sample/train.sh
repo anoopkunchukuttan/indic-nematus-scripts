@@ -1,9 +1,6 @@
 #!/bin/bash
 
-# theano device, in case you do not want to compute on gpu, change it to cpu
-device=gpu
-
-export PYTHONPATH=$PYTHONPATH:/home/development/anoop/installs/nematus
+source ./common.sh
 
 THRESHOLD=3
 
