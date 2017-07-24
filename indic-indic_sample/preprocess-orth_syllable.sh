@@ -20,7 +20,7 @@ do
         echo $prefix-$lang
     done 
 done | \
-parallel --dry-run --gnu --colsep '-' "$SUBWORD_SCRIPTS/utilities.py format_converter data/{1}.{2} data/{1}.tmp.{2} space_to_internal_marker_format '@' ; \
+parallel --gnu --colsep '-' "python $SUBWORD_SCRIPTS/utilities.py format_converter data/{1}.{2} data/{1}.tmp.{2} space_to_internal_marker_format '@' ; \
                             cat data/{1}.tmp.{2} | sed 's,@,@@,g'  >  data/{1}.subword.{2}"
 
 ## clean empty and long sentences, and sentences with high source-target ratio (training corpus only)

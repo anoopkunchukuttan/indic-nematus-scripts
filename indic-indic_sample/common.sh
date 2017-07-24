@@ -1,6 +1,6 @@
 
 # path to moses decoder: https://github.com/moses-smt/mosesdecoder
-mosesdecoder=/usr/local/bin/smt/mosesdecoder_29July16/
+mosesdecoder=/usr/local/bin/smt/mosesdecoder_18mar2017
 
 # path to subword segmentation scripts: https://github.com/rsennrich/subword-nmt
 subword_nmt=/home/development/anoop/installs/subword-nmt

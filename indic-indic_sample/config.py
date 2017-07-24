@@ -3,7 +3,7 @@ import os
 import sys
 import logging
 
-VOCAB_SIZE = int(os.getenv('VOCAB_SIZE')
+VOCAB_SIZE = int(os.getenv('VOCAB_SIZE'))
 SRC = os.getenv('SRC')
 TRG = os.getenv('TRG')
 DATA_DIR = "data/"
@@ -16,7 +16,7 @@ if __name__ == '__main__':
     validerr = train(saveto='model/model.npz',
                     reload_=True,
                     dim_word=256,
-                    dim=512,
+                    dim=256,
                     n_words=VOCAB_SIZE,
                     n_words_src=VOCAB_SIZE,
                     decay_c=0.,
