@@ -19,7 +19,7 @@ do
         echo $prefix-$lang
     done 
 done | \
-parallel --gnu --colsep '-' "$subword_nmt/apply_bpe.py -c model/{2}.bpe < data/{1}.{2} > data/{1}.bpe.{2}"
+parallel --gnu --colsep '-' "$subword_nmt/apply_bpe.py -c model/{2}.bpe < data/{1}.{2} > data/{1}.subword.{2}"
 
 ##### separate BPE operations END #######
 
@@ -36,9 +36,9 @@ parallel --gnu --colsep '-' "$subword_nmt/apply_bpe.py -c model/{2}.bpe < data/{
 #        echo $prefix-$lang
 #    done 
 #done | \
-#parallel --gnu --colsep '-' "$subword_nmt/apply_bpe.py -c model/$SRC$TRG.bpe < data/{1}.{2} > data/{1}.bpe.{2}"
+#parallel --gnu --colsep '-' "$subword_nmt/apply_bpe.py -c model/$SRC$TRG.bpe < data/{1}.{2} > data/{1}.subword.{2}"
 #
 ###### joint BPE operations END #######
 
 ## build network dictionary
-$nematus/data/build_dictionary.py data/train.bpe.$SRC data/train.bpe.$TRG
+$nematus/data/build_dictionary.py data/train.subword.$SRC data/train.subword.$TRG

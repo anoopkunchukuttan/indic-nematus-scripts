@@ -5,9 +5,9 @@ source ./common.sh
 #model prefix
 prefix=model/model.npz
 
-dev=data/tun.bpe.$SRC
+dev=data/tun.subword.$SRC
 ref=data/tun.$TRG
-out=output/tun.bpe.$TRG
+out=output/tun.subword.$TRG
 
 # decode
 THEANO_FLAGS=mode=FAST_RUN,floatX=float32,device=$device,on_unused_input=warn python $nematus/nematus/translate.py \
