@@ -13,4 +13,4 @@ THEANO_FLAGS=mode=FAST_RUN,floatX=float32,device=$device,on_unused_input=warn py
 
 
 ## get BLEU
-$mosesdecoder/scripts/generic/multi-bleu.perl data/test.$TRG < output/test.subword.output.postprocessed.$TRG > output/bleu_score.txt
+$mosesdecoder/scripts/generic/multi-bleu.perl $ilci_corpus_path/$SRC-$TRG/test.$TRG < output/test.subword.output.postprocessed.$TRG > output/bleu_score.txt

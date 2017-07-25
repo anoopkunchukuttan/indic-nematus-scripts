@@ -6,7 +6,7 @@ source ./common.sh
 prefix=model/model.npz
 
 dev=data/tun.subword.$SRC
-ref=data/tun.$TRG
+ref=$ilci_corpus_path/$SRC-$TRG/tun.$TRG
 out=output/tun.subword.$TRG
 
 # decode
