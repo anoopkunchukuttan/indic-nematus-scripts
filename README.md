@@ -1,12 +1,8 @@
-Scripts for Edinburgh Neural MT systems for WMT 16
-==================================================
+Scripts for Nematus Neural MT systems modified for Indian languages
+=====================================================================
 
-This repository contains scripts and an example config used for the Edinburgh Neural MT submission (UEDIN-NMT)
-for the shared translation task at the 2016 Workshops on Statistical Machine Translation (http://www.statmt.org/wmt16/),
-and for the paper "Linguistic Input Features Improve Neural Machine Translation".
-
-The scripts will facilitate the reproduction of our results, and serve as additional documentation (along with the system description paper)
-
+This repository contains scripts and an example config used for the IIT Bombay submission 
+for the shared translation task at the 2017 shared task of Workshops on Asian Translation (WAT).
 
 OVERVIEW
 --------
